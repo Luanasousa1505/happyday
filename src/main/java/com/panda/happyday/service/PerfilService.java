@@ -1,7 +1,6 @@
 package com.panda.happyday.service;
 
 import com.panda.happyday.entity.Perfil;
-import com.panda.happyday.entity.Usuarios;
 import com.panda.happyday.repository.PerfilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +9,7 @@ import java.util.Optional;
 
 @Service
 public class PerfilService {
+
     @Autowired
     private PerfilRepository perfilRepository;
 
