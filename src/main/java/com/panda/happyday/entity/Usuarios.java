@@ -1,6 +1,8 @@
 package com.panda.happyday.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table( name = "USUARIOS")
@@ -20,15 +22,24 @@ public class Usuarios {
     @Column (name = "SENHA" )
     private String senha;
 
+    @OneToMany
+    @JoinTable(
+            name = "Usuarios_perfil",
+            joinColumns = @JoinColumn( name = "id_usuarios"),
+            inverseJoinColumns = @JoinColumn( name = "id_perfil")
+    )
+    private List<Perfil> perfis = new ArrayList<>();
+
     public Usuarios() {
 
     }
 
-    public Usuarios(Long id, String nome, String email, String senha) {
+    public Usuarios(Long id, String nome, String email, String senha, List<Perfil> perfis) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.perfis = perfis;
     }
 
     public Long getId() {
@@ -61,5 +72,13 @@ public class Usuarios {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public List<Perfil> getPerfis() {
+        return perfis;
+    }
+
+    public void setPerfis(List<Perfil> perfis) {
+        this.perfis = perfis;
     }
 }
