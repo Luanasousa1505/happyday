@@ -24,9 +24,9 @@ public class Usuarios {
 
     @OneToMany
     @JoinTable(
-            name = "Usuarios_perfil",
-            joinColumns = @JoinColumn( name = "id_usuarios"),
-            inverseJoinColumns = @JoinColumn( name = "id_perfil")
+            name = "USUARIOS_PERFIL",
+            joinColumns = @JoinColumn( name = "ID_USUARIOS"),
+            inverseJoinColumns = @JoinColumn( name = "ID_PERFIL")
     )
     private List<Perfil> perfis = new ArrayList<>();
 
